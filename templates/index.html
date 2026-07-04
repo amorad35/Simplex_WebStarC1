@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solver IO - Simplex y Método Gráfico</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div>
+        <p class="tag">Investigación de Operaciones</p>
+        <h1>Solver Simplex y Método Gráfico</h1>
+        <p class="subtitle">
+          Ingresa la función objetivo y las restricciones. El sistema resuelve el ejercicio
+          con tablas simplex paso a paso y muestra solución gráfica cuando sea posible.
+        </p>
+      </div>
+
+      <div class="hero-info">
+        <div class="badge">Local · Python</div>
+        <small>Funciona en tu navegador sin internet</small>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="section-header">
+        <div>
+          <h2>1. Configuración del modelo</h2>
+          <p>Selecciona el tipo de problema y define cuántas variables y restricciones tendrá.</p>
+        </div>
+      </div>
+
+      <div class="grid-3 compact-config">
+        <label>
+          Tipo de problema
+          <select id="objective">
+            <option value="max">Maximizar</option>
+            <option value="min">Minimizar</option>
+          </select>
+        </label>
+
+        <label>
+          Variables
+          <input id="numVars" type="number" min="1" max="10" value="3">
+        </label>
+
+        <label>
+          Restricciones
+          <input id="numRestrictions" type="number" min="1" max="10" value="3">
+        </label>
+      </div>
+
+      <div class="actions top-actions">
+        <button id="buildBtn" class="primary" type="button">Generar tabla</button>
+        <button id="exampleImageBtn" type="button">Ejemplo imagen</button>
+        <button id="exampleGraphBtn" type="button">Ejemplo gráfico</button>
+      </div>
+
+      <p class="hint">
+        Puedes ingresar enteros, decimales o fracciones. Ejemplo:
+        <b>3</b>, <b>2.5</b>, <b>1/5</b>.
+      </p>
+
+      <div class="mini-note">
+        <b>Signos automáticos:</b>
+        si eliges <b>Maximizar</b>, las restricciones se colocan como <b>&lt;=</b>.
+        Si eliges <b>Minimizar</b>, se colocan como <b>&gt;=</b>.
+      </div>
+    </section>
+
+    <section class="card" id="modelCard">
+      <div class="section-header">
+        <div>
+          <h2>2. Función objetivo y restricciones</h2>
+          <p>Llena los coeficientes de cada variable y el recurso de cada restricción.</p>
+        </div>
+      </div>
+
+      <div id="inputArea"></div>
+
+      <div class="actions solve-actions">
+        <button id="solveBtn" class="primary" type="button">Resolver paso a paso</button>
+        <button id="clearBtn" class="danger-soft" type="button">Limpiar datos</button>
+      </div>
+
+      
+    </section>
+
+    <section id="message" class="message hidden"></section>
+
+    <section id="results" class="results"></section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
